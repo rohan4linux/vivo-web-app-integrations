@@ -1,0 +1,39 @@
+#Create Custom Container Image
+#Push to DockerHub Registry
+---
+- hosts: localhost
+  tasks: 
+  - name: Pull .war artifact from Artifactory
+    become: true
+    become_user: root
+    get_url:
+      url: https://iwayqweb.jfrog.io/artifactory/mobile/com/iwayq/iwayQApp/1.0-RELEASE/iwayQApp-1.0-RELEASE.war
+      dest: .
+      url_username: "prreddy1986@gmail.com"
+      url_password: "mko09ijN"
+
+  - name: Rename .war Artifact
+    command: mv iwayQApp-1.0-RELEASE.war iwayq.war
+  
+  - name: Build image and with build args
+    docker_image:
+      name: iwayq
+      build:
+        path: .
+        pull: no
+        args:
+          listen_port: 8080
+      source: build
+
+  - name: Log into DockerHub
+    docker_login:
+     username: iwayqdockertest
+     password: P2$$w0rd
+
+    
+  - name: Push to docker hub
+    docker_image:
+      name: iwayq
+      repository: docker.io/iwayqdockertest/iwayq:1.0
+      push: yes
+      source: local
