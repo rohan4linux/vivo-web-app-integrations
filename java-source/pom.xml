@@ -17,9 +17,8 @@
 
 	<properties>
 		<java.version>1.8</java.version>
-		<sonar.projectKey>mobile-web-app</sonar.projectKey>
-        <sonar.organization>iwayq</sonar.organization>
-        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+		<sonar.organization>iwayq-web-test</sonar.organization>
+		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
 	</properties>
 
 	<dependencies>
@@ -73,8 +72,8 @@
 <distributionManagement>
     <repository>
         <id>central</id>
-        <name>a0zw1isyswuzg-artifactory-primary-0-releases</name>
-        <url>https://iwayqweb.jfrog.io/artifactory/mobile</url>
+        <name>a0nttajcgd1qc-artifactory-primary-0-releases</name>
+	<url>https://valaxytech529.jfrog.io/artifactory/iwayqweb-libs-release-local</url>
     </repository>
 </distributionManagement>
 </project>

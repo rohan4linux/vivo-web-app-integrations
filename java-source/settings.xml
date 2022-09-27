@@ -3,13 +3,13 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <servers>
     <server>
-      <username>admin</username>
-      <password>Admin123</password>
+      <username>jfrogadmin</username>
+      <password>{Nsvw6a448PgH3IXCF8GZkCSnMe35pJ72G6ltMHUqdTw=}</password>
       <id>central</id>
     </server>
     <server>
-      <username>admin</username>
-      <password>Admin123</password>
+      <username>jfrogadmin</username>
+      <password>{Nsvw6a448PgH3IXCF8GZkCSnMe35pJ72G6ltMHUqdTw=}</password>
       <id>snapshots</id>
     </server>
   </servers>
@@ -21,11 +21,15 @@
             <enabled>false</enabled>
           </snapshots>
           <id>central</id>
-          <name>iwayq-libs-release-local</name>
-          <url>http://18.207.136.250:8082/artifactory/iwayq-libs-release</url>
-	  
+          <name>iwayqweb-libs-release</name>
+	  <url>https://valaxytech529.jfrog.io/artifactory/iwayqweb-libs-release</url>
         </repository>
-       
+	<repository>
+         <snapshots />
+         <id>snapshots</id>
+             <name>iwayqweb-libs-snapshot</name>
+	     <url>https://valaxytech529.jfrog.io/artifactory/iwayqweb-libs-snapshot</url>
+   </repository>
       </repositories>
       <pluginRepositories>
         <pluginRepository>
@@ -33,15 +37,21 @@
             <enabled>false</enabled>
           </snapshots>
           <id>central</id>
-          <name>iwayq-libs-release-local</name>
-          <url>http://18.207.136.250:8082/artifactory/iwayq-libs-release</url>
-	  <blocked>false</blocked>
-        </pluginRepository>
-        </pluginRepositories>
-      <id>artifactory</id>
-    </profile>
-  </profiles>
-  <activeProfiles>
-    <activeProfile>artifactory</activeProfile>
-  </activeProfiles>
-</settings>
+          <name>iwayqweb-libs-release</name>
+	  <url>https://valaxytech529.jfrog.io/artifactory/iwayqweb-libs-release</url>
+  </pluginRepository>
+         <pluginRepository>
+	<snapshots />
+        <id>snapshots</id>
+	<name>iwayqweb-libs-snapshot</name>
+       <url>https://valaxytech529.jfrog.io/artifactory/iwayqweb-libs-snapshot</url>
+       </pluginRepository>
+       </pluginRepositories>
+       <id>artifactory</id>
+           </profile>
+	     </profiles>
+	       <activeProfiles>
+		           <activeProfile>artifactory</activeProfile>
+			     </activeProfiles>
+		     </settings>
+
