@@ -27,7 +27,7 @@
 
   - name: Log into DockerHub
     docker_login:
-     username: rohan4linux@gmail.com
+     username: rohan4linux
      password: Devops@1409
 
     
