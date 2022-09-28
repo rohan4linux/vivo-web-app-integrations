@@ -91,7 +91,7 @@ pipeline {
             steps {
               dir('charts') {
              sh "/bin/helm package mobile-web-app"
-					   sh "sudo /bin/helm push-artifactory --username rohan.reddy529@gmail.com --password 4getmenot@J mobile-web-app-0.0.1.tgz https://valaxytech529.jfrog.io/artifactory/iwayqweb-libs-release-local"
+					   sh "sudo /bin/helm push-artifactory --username rohan.reddy529@gmail.com --password 4getmenot@J mobile-web-app-0.0.1.tgz https://valaxytech529.jfrog.io/artifactory/mobile-helm-local"
 					  }
           }
             
