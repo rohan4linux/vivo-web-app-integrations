@@ -17,6 +17,7 @@
   
   - name: Build image and with build args
     become: true
+    become_user: root
     docker_image:
       name: iwayq
       build:
