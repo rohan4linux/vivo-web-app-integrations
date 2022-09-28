@@ -7,7 +7,7 @@ metadata:
   labels:
     app: iwayq-app
 spec:
-  replicas: 3
+  replicas: {{ .Values.deployment.replicaCount }}
   selector:
     matchLabels:
       app: iwayq-app
@@ -18,6 +18,6 @@ spec:
     spec:
       containers:
       - name: iwayq-container
-        image: docker.io/iwayqdockertest/iwayq:1.0
+        image: docker.io/rohan4linux/iwayq:1.0
         ports:
         - containerPort: 8080

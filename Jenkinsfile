@@ -9,7 +9,7 @@ pipeline {
 
       stage ('Checkout SCM'){
         steps {
-          checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'git', url: 'https://iwayqtech@bitbucket.org/iwayqtech/mobile-web-app-integrations.git']]])
+          checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'git', url: 'https://github.com/rohan4linux/mobile-web-app-integrations.git']]])
         }
       }
 	  
@@ -28,7 +28,7 @@ pipeline {
               withSonarQubeEnv('sonar') {
                 
 				dir('java-source'){
-                 sh 'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar'
+                 sh 'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=iwayq-web-test'
                 }
 				
               }
@@ -39,22 +39,22 @@ pipeline {
             steps {
                 rtServer (
                     id: "jfrog",
-                    url: "https://iwayqweb.jfrog.io/artifactory",
+                    url: "https://valaxytech529.jfrog.io/artifactory",
                     credentialsId: "jfrog"
                 )
 
                 rtMavenDeployer (
                     id: "MAVEN_DEPLOYER",
                     serverId: "jfrog",
-                    releaseRepo: "mobile",
-                    snapshotRepo: "mobile"
+                    releaseRepo: "iwayqweb-libs-release-local",
+                    snapshotRepo: "iwayqweb-libs-snapshot-local"
                 )
 
                 rtMavenResolver (
                     id: "MAVEN_RESOLVER",
                     serverId: "jfrog",
-                    releaseRepo: "default-maven-virtual",
-                    snapshotRepo: "default-maven-virtual"
+                    releaseRepo: "iwayqweb-libs-release",
+                    snapshotRepo: "iwayqweb-libs-snapshot"
                 )
             }
     }
@@ -90,8 +90,8 @@ pipeline {
             
             steps {
               dir('charts') {
-             sh "/usr/local/bin/helm package mobile-web-app"
-					   sh "sudo /usr/local/bin/helm push-artifactory --username prreddy1986@gmail.com --password mko09ijN mobile-web-app-0.0.1.tgz https://iwayqweb.jfrog.io/artifactory/mobile-helm-local"
+             sh "/bin/helm package mobile-web-app"
+					   sh "sudo /bin/helm push-artifactory --username rohan.reddy529@gmail.com --password 4getmenot@J mobile-web-app-0.0.1.tgz https://valaxytech529.jfrog.io/artifactory/iwayqweb-libs-release-local"
 					  }
           }
             
