@@ -8,17 +8,17 @@
 		<version>2.2.4.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.iwayq</groupId>
-	<artifactId>iwayQApp</artifactId>
-	<version>1.0-RELEASE</version>
+	<groupId>com.antrix</groupId>
+	<artifactId>antrix</artifactId>
+	<version>1.1-RELEASE</version>
 	<packaging>war</packaging>
-	<name>iwayQApp</name>
-	<description>iwayQ DevOps project for Spring Boot</description>
+	<name>Antrix</name>
+	<description>Antrix DevOps project for Spring Boot</description>
 
 	<properties>
 		<java.version>1.8</java.version>
-		<sonar.organization>iwayq-web-test</sonar.organization>
-		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+		<sonar.organization>antrix</sonar.organization>
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
 	</properties>
 
 	<dependencies>
@@ -73,7 +73,7 @@
     <repository>
         <id>central</id>
         <name>a0nttajcgd1qc-artifactory-primary-0-releases</name>
-	<url>https://valaxytech529.jfrog.io/artifactory/iwayqweb-libs-release-local</url>
+        <url>https://valaxytech529.jfrog.io/artifactory/vivo-libs-release-local</url>
     </repository>
 </distributionManagement>
 </project>
