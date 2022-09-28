@@ -16,6 +16,7 @@
     command: mv iwayQApp-2.0-RELEASE.war iwayq.war
   
   - name: Build image and with build args
+    become: true
     docker_image:
       name: iwayq
       build:
