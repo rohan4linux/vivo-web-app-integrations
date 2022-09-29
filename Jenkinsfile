@@ -92,8 +92,8 @@ pipeline {
               sh "ansible-playbook create-container-image.yaml"       
             }    
         } 
-     }
-  }     
+     
+       
 
     stage('Build Helm Charts') {
             
@@ -105,6 +105,5 @@ pipeline {
           }
             
         } 
-         
-   } 
-}
+    }            
+} 
