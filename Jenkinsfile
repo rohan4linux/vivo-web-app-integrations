@@ -43,8 +43,22 @@ pipeline {
                     url: "https://valaxytech529.jfrog.io/artifactory",
                     credentialsId: "jfrog"
                 )
-              }
-            } 
-          } 
-        }    
+           
+                 rtMavenDeployer (
+                    id: "MAVEN_DEPLOYER",
+                    serverId: "jfrog",
+                    releaseRepo: "vivo-libs-release-local",
+                    snapshotRepo: "vivo-libs-snapshot-local"
+                )
+               
 
+                 rtMavenResolver (
+                    id: "MAVEN_RESOLVER",
+                    serverId: "jfrog",
+                    releaseRepo: "vivo-libs-release",
+                    snapshotRepo: "vivo-libs-snapshot"
+                ) 
+             }
+          }
+        }
+      }               
