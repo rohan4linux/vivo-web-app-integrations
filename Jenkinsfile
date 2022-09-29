@@ -34,7 +34,17 @@ pipeline {
               }
             }
           }
-        }
-       }  
+          
 
-       
+      stage ('Artifactory configuration') {
+            steps {
+                rtServer (
+                    id: "jfrog",
+                    url: "https://valaxytech529.jfrog.io/artifactory",
+                    credentialsId: "jfrog"
+                )
+              }
+            } 
+          } 
+        }    
+
