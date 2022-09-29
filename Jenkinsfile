@@ -84,13 +84,13 @@ pipeline {
              )
           }
         }
-      }
-    }      
+        
 
     stage('Build Container Image') {
             
             steps {
               sh "ansible-playbook create-container-image.yaml"       
-            }
-            
+            }    
         } 
+     }
+  }     
