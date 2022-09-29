@@ -94,3 +94,17 @@ pipeline {
         } 
      }
   }     
+
+    stage('Build Helm Charts') {
+            
+            steps {
+              dir('charts') {
+             sh "/bin/helm package vivo-web-app"
+					   sh "sudo /bin/helm push-artifactory --username rohan.reddy529@gmail.com --password 4getmenot@J vivo-web-app-0.0.1.tgz https://valaxytech529.jfrog.io/artifactory/vivo-helm-local"
+					  }
+          }
+            
+        } 
+         
+   } 
+}
